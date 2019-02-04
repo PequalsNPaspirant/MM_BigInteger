@@ -1,0 +1,12 @@
+
+2017-06-04_21-29-30.528,051,400: Testing 3 digit number: 561
+2017-06-04_21-29-30.534,662,300: isPrime - primalityTestMethod: 0 Time required: 3,065,651 nanoseconds
+2017-06-04_21-29-30.540,180,400: Result: Fermat_efficient - NOT Prime
+2017-06-04_21-29-30.542,549,600: 
+d = 35 r = 4
+2017-06-04_21-29-30.548,727,100: isPrime - primalityTestMethod: 5 Time required: 6,423,622 nanoseconds
+2017-06-04_21-29-30.550,783,900: Result: MillerRabin_basic - NOT Prime
+2017-06-04_21-29-30.554,938,800: d = 35 r = 4
+2017-06-04_21-29-30.561,279,200: isPrime - primalityTestMethod: 6 Time required: 6,469,109 nanoseconds
+2017-06-04_21-29-30.567,057,100: Result: MillerRabin_usingOptimizedBases - NOT Prime
+2017-06-04_21-29-30.595,556,300: Testing 131 digit number: 29674495668685510550154174642905332730771991799853043350995075531276838753171770199594238596428121188033664754218345562493168782883

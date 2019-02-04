@@ -1,0 +1,52 @@
+
+obj/windows_gcc/Assert/MyAssert.o: src/Assert/MyAssert.cpp src/Assert/MyAssert.h
+
+obj/windows_gcc/BigInteger/BigInteger.o: src/BigInteger/BigInteger.cpp src/BigInteger/BigInteger.h \
+ src/Assert/MyAssert.h src/my_math_lib/ArithmeticOperations.h \
+ src/Logger/Logger.h src/Timer/Timer.h
+
+obj/windows_gcc/BigInteger/BigInteger_Template.o: src/BigInteger/BigInteger_Template.cpp \
+ src/BigInteger/BigInteger_Template.h src/Assert/MyAssert.h \
+ src/my_math_lib/ArithmeticOperations.h
+
+obj/windows_gcc/BigInteger/BigInteger_Template_UnitTest.o: src/BigInteger/BigInteger_Template_UnitTest.cpp \
+ src/BigInteger/BigInteger_Template.h src/Assert/MyAssert.h \
+ src/my_math_lib/ArithmeticOperations.h
+
+obj/windows_gcc/BigInteger/BigInteger_UnitTest.o: src/BigInteger/BigInteger_UnitTest.cpp \
+ src/BigInteger/BigInteger.h src/Assert/MyAssert.h \
+ src/my_math_lib/ArithmeticOperations.h src/Logger/Logger.h \
+ src/Timer/Timer.h
+
+obj/windows_gcc/Logger/Logger.o: src/Logger/Logger.cpp src/Timer/Timer.h src/Logger/Logger.h
+
+obj/windows_gcc/Logger/Logger_UnitTest.o: src/Logger/Logger_UnitTest.cpp src/Timer/Timer.h \
+ src/Logger/Logger.h
+
+obj/windows_gcc/MM_BigInteger_main.o: src/MM_BigInteger_main.cpp \
+ ../MM_CommonUtils/src/WindowsUtils/WindowsUtils.h src/Timer/Timer.h
+
+obj/windows_gcc/my_math_lib/ArithmeticOperations.o: src/my_math_lib/ArithmeticOperations.cpp \
+ src/my_math_lib/ArithmeticOperations.h src/Assert/MyAssert.h
+
+obj/windows_gcc/my_math_lib/Maths.o: src/my_math_lib/Maths.cpp
+
+obj/windows_gcc/my_math_lib/NumberSystems.o: src/my_math_lib/NumberSystems.cpp
+
+obj/windows_gcc/my_math_lib/Permutations.o: src/my_math_lib/Permutations.cpp \
+ src/my_math_lib/Permutations.h
+
+obj/windows_gcc/my_math_lib/PrimeNumber.o: src/my_math_lib/PrimeNumber.cpp \
+ src/my_math_lib/PrimeNumber.h src/my_math_lib/RandomNumber.h \
+ src/Timer/Timer.h src/Assert/MyAssert.h
+
+obj/windows_gcc/my_math_lib/RandomNumber.o: src/my_math_lib/RandomNumber.cpp \
+ src/my_math_lib/RandomNumber.h
+
+obj/windows_gcc/Timer/MSDNTimeExample.o: src/Timer/MSDNTimeExample.cpp
+
+obj/windows_gcc/Timer/Timer.o: src/Timer/Timer.cpp src/Timer/Timer.h src/Assert/MyAssert.h
+
+obj/windows_gcc/Timer/Timer2.o: src/Timer/Timer2.cpp src/Timer/Timer2.h
+
+obj/windows_gcc/Timer/Timer_UnitTest.o: src/Timer/Timer_UnitTest.cpp src/Timer/Timer.h
