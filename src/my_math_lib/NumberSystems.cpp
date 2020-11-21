@@ -58,9 +58,15 @@ namespace mm {
 
 		//Convert from 'baseIn' to decimal
 		decimalVal = 0;
-		int lenIn = numIn.length();
-		for (int i = lenIn - 1; i >= 0; i--)
-			decimalVal += convertDigitFromAnyToDecimal(numIn[i]) * pow(baseIn, lenIn - i - 1);
+		size_t lenIn = numIn.length();
+		//for (int i = lenIn - 1; i >= 0; --i)
+		size_t i = lenIn;
+		do
+		{
+			--i;
+			decimalVal += convertDigitFromAnyToDecimal(numIn[i]) * static_cast<unsigned long>(pow(baseIn, lenIn - i - 1));
+		}
+		while (i > 0);
 
 		numOut.clear();
 

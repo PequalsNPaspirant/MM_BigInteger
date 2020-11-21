@@ -31,3 +31,4 @@
 /obj/windows_gcc/*.o
 /obj/windows_gcc/Timer/*.o
 /obj/windows_gcc/my_math_lib/*.o
+unsuccessfulbuild

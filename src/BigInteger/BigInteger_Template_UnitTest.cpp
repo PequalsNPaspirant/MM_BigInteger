@@ -8,9 +8,11 @@ http://grepcode.com/file/repository.grepcode.com/java/root/jdk/openjdk/6-b14/jav
 #include <iostream>
 #include <ctime>
 #include <string>
+#include <cassert>
 using namespace std;
 
 #include "BigInteger_Template.h"
+#include "MM_UnitTestFramework/MM_UnitTestFramework.h"
 
 // ============================================= Testing ===============================================
 
@@ -18,7 +20,7 @@ namespace mm {
 
 	void testConstructionBigIntegerTemplate()
 	{
-		cout << "\nTesting construction of BigIntegerTemplate:";
+		cout << "\n\nTesting construction of BigIntegerTemplate:";
 
 		long long testValues[] = { 0, 1, 2, 5, 8, 9, 10, 16, 32, 64, 99, 100, 123456, 10000250,
 								  -0, -1, -2, -5, -8, -9, -10, -16, -32, -64, -99, -100, -123456, -10000250 };
@@ -43,15 +45,15 @@ namespace mm {
 			//cout << "\nValue: " << i << " BigIntegerTemplate with base 10: " << base10String2;
 
 			string string1 = to_string(testValues[i]);
-			MyAssert::myRunTimeAssert(string1 == base10String1);
-			MyAssert::myRunTimeAssert(base2String1 == base2String2);
-			MyAssert::myRunTimeAssert(base10String1 == base10String2);
+			assert(string1 == base10String1);
+			assert(base2String1 == base2String2);
+			assert(base10String1 == base10String2);
 		}
 	}
 
 	void testConstructionBigIntegerTemplateExaustive()
 	{
-		cout << "\nTesting construction of BigIntegerTemplate (Exaustive Test):";
+		cout << "\n\nTesting construction of BigIntegerTemplate (Exaustive Test):";
 		const int TEST_CASES = 100;
 		const int TEST_BASES = 10;
 		unsigned int base[TEST_BASES];
@@ -84,13 +86,13 @@ namespace mm {
 					BigIntegerTemplate<unsigned int, unsigned int> bigInt3(string1, base[i], base[k]);
 					string string3 = bigInt3.toString();
 
-					MyAssert::myRunTimeAssert(string2 == string3);
+					assert(string2 == string3);
 
 					//Convert this string back to BigIntegerTemplate of base[i]
 					BigIntegerTemplate<unsigned int, unsigned int> bigInt4(string2, base[k], base[i]);
 					string string4 = bigInt4.toString();
 
-					MyAssert::myRunTimeAssert(string1 == string4);
+					assert(string1 == string4);
 				}
 			}
 		}
@@ -108,18 +110,18 @@ namespace mm {
 		BigIntegerTemplate<unsigned int, unsigned int> bigInt3(string1, base1, base2);
 		string string3 = bigInt3.toString();
 
-		MyAssert::myRunTimeAssert(string2 == string3);
+		assert(string2 == string3);
 
 		//Convert this string back to BigIntegerTemplate of base[i]
 		BigIntegerTemplate<unsigned int, unsigned int> bigInt4(string2, base2, base1);
 		string string4 = bigInt4.toString();
 
-		MyAssert::myRunTimeAssert(string1 == string4);
+		assert(string1 == string4);
 	}
 
 	void testConstructionBigIntegerTemplateVeryVeryExaustive()
 	{
-		cout << "\nTesting construction of BigIntegerTemplate (Very Very Exaustive Test):";
+		cout << "\n\nTesting construction of BigIntegerTemplate (Very Very Exaustive Test):";
 		const int MAX_DIGITS = 10;
 		const int COUNT = 5;
 		size_t maxBase = 32;
@@ -129,7 +131,7 @@ namespace mm {
 
 		for (int digits = 1; digits <= MAX_DIGITS; digits++)
 		{
-			long long modulus = pow(10, digits);
+			long long modulus = static_cast<long long>(pow(10, digits));
 			for (int iterations = 0; iterations < COUNT; iterations++)
 			{
 				long long number = rand() % modulus;
@@ -156,17 +158,17 @@ namespace mm {
 		BigIntegerTemplate<unsigned int, unsigned int> bigInt3 = bigInt1 + bigInt2;
 		long long result1 = bigInt3.covertToDecimal();
 		long long result2 = number1 + number2;
-		MyAssert::myRunTimeAssert(result1 == result2);
+		assert(result1 == result2);
 		//Test substraction
 		BigIntegerTemplate<unsigned int, unsigned int> bigInt4 = bigInt1 - bigInt2;
 		long long result3 = bigInt4.covertToDecimal();
 		long long result4 = number1 - number2;
-		MyAssert::myRunTimeAssert(result3 == result4);
+		assert(result3 == result4);
 		//Test multiplication
 		BigIntegerTemplate<unsigned int, unsigned int> bigInt5 = bigInt1 * bigInt2;
 		long long result5 = bigInt5.covertToDecimal();
 		long long result6 = number1 * number2;
-		MyAssert::myRunTimeAssert(result5 == result6);
+		assert(result5 == result6);
 	}
 
 
@@ -185,12 +187,12 @@ namespace mm {
 
 	void testAdditionSubstractionMultiplicationBigIntegerTemplate()
 	{
-		cout << "\nTesting Arithmetic Operations (Addition & Substraction) on BigIntegerTemplate:";
+		cout << "\n\nTesting Arithmetic Operations (Addition & Substraction) on BigIntegerTemplate:";
 		const int TEST_CASES = 500;
 		const int MAX_DIGITS = 10;
 		long long modulus[MAX_DIGITS];
 		for (int digits = 0; digits < MAX_DIGITS; digits++)
-			modulus[digits] = pow(10, digits);
+			modulus[digits] = static_cast<long long>(pow(10, digits));
 
 		size_t maxBase = 32;
 		const int COUNT = 4;
@@ -246,4 +248,11 @@ namespace mm {
 		testBasicArithmeticOperationsBigIntegerTemplate();
 	}
 
+
+	MM_DECLARE_FLAG(BigInteger_Template_unit_test);
+
+	MM_UNIT_TEST(BigInteger_Template_unit_test_1, BigInteger_Template_unit_test)
+	{
+		BigIntegerTemplateTest();
+	}
 }

@@ -1,9 +1,13 @@
 #include <iostream>
 #include <ctime>
 #include <cmath>
+#include <cassert>
+#include <string>
 using namespace std;
 
 #include "BigInteger.h"
+#include "Timer/Timer_Timer.h"
+#include "MM_UnitTestFramework/MM_UnitTestFramework.h"
 
 namespace mm {
 
@@ -16,17 +20,17 @@ namespace mm {
 		BigInteger bigInt3 = bigInt1 + bigInt2;
 		long long result1 = bigInt3.covertToLongLong();
 		long long result2 = number1 + number2;
-		MyAssert::myRunTimeAssert(result1 == result2);
+		assert(result1 == result2);
 		//Test substraction
 		BigInteger bigInt4 = bigInt1 - bigInt2;
 		long long result3 = bigInt4.covertToLongLong();
 		long long result4 = number1 - number2;
-		MyAssert::myRunTimeAssert(result3 == result4);
+		assert(result3 == result4);
 		//Test multiplication
 		BigInteger bigInt5 = bigInt1 * bigInt2;
 		long long result5 = bigInt5.covertToLongLong();
 		long long result6 = number1 * number2;
-		MyAssert::myRunTimeAssert(result5 == result6);
+		assert(result5 == result6);
 		//Test division
 		BigInteger bigIntQuotient, bigIntRemainder;
 		if (bigInt2 != 0LL)
@@ -36,8 +40,8 @@ namespace mm {
 			long long result8 = bigIntRemainder.covertToLongLong();
 			long long result9 = number1 / number2;
 			long long result10 = number1 % number2;
-			MyAssert::myRunTimeAssert(result7 == result9);
-			MyAssert::myRunTimeAssert(result8 == result10);
+			assert(result7 == result9);
+			assert(result8 == result10);
 		}
 	}
 
@@ -46,28 +50,28 @@ namespace mm {
 		const BigInteger bigInt1(number1);
 		string bigInt1str(bigInt1.toString());
 		string str1(to_string(number1));
-		MyAssert::myRunTimeAssert(bigInt1str == str1);
+		assert(bigInt1str == str1);
 
 		long long result1 = bigInt1.covertToLongLong();
-		MyAssert::myRunTimeAssert(result1 == number1);
+		assert(result1 == number1);
 
 		const BigInteger bigInt2(number2);
 		string bigInt2str(bigInt2.toString());
 		string str2(to_string(number2));
-		MyAssert::myRunTimeAssert(bigInt2str == str2);
+		assert(bigInt2str == str2);
 
 		long long result2 = bigInt2.covertToLongLong();
-		MyAssert::myRunTimeAssert(result2 == number2);
+		assert(result2 == number2);
 
 		const BigInteger bigInt3(str1);
 		string bigInt3str(bigInt3.toString());
-		MyAssert::myRunTimeAssert(bigInt3str == str1);
-		MyAssert::myRunTimeAssert(bigInt1 == bigInt3);
+		assert(bigInt3str == str1);
+		assert(bigInt1 == bigInt3);
 
 		const BigInteger bigInt4(str2);
 		string bigInt4str(bigInt4.toString());
-		MyAssert::myRunTimeAssert(bigInt4str == str2);
-		MyAssert::myRunTimeAssert(bigInt2 == bigInt4);
+		assert(bigInt4str == str2);
+		assert(bigInt2 == bigInt4);
 
 		testSmallNumbersArithmeticOperations(bigInt1, bigInt2, number1, number2);
 		testSmallNumbersArithmeticOperations(bigInt3, bigInt4, number1, number2);
@@ -75,8 +79,8 @@ namespace mm {
 		bool comparisonResult1 = number1 < number2;
 		bool comparisonResult2 = bigInt1 < bigInt2;
 		bool comparisonResult3 = bigInt3 < bigInt4;
-		MyAssert::myRunTimeAssert(comparisonResult1 == comparisonResult2);
-		MyAssert::myRunTimeAssert(comparisonResult1 == comparisonResult3);
+		assert(comparisonResult1 == comparisonResult2);
+		assert(comparisonResult1 == comparisonResult3);
 	}
 
 	void testSmallNumbers()
@@ -90,12 +94,12 @@ namespace mm {
 		for (int i = 0; i < count; i++)
 			for (int k = 0; k < count; k++)
 			{
-				cout << "\nValue: " << testValues[i];
+				//cout << "\nValue: " << testValues[i];
 				testSmallNumbers(testValues[i], testValues[k]);
 			}
 
 		//Random numbers
-		cout << "\nTesting Arithmetic Operations (Addition, Substraction, Multiplication and division) on BigInteger:";
+		cout << "\n\nTesting Arithmetic Operations (Addition, Substraction, Multiplication and division) on BigInteger:";
 		const int TEST_CASES = 1000;
 		const int MAX_DIGITS = 10;
 		long long modulus[MAX_DIGITS];
@@ -119,7 +123,7 @@ namespace mm {
 				if (iterations % 2 == 0)
 					number2 = -number2;
 
-				cout << "\nValues: " << number1 << " & " << number2;
+				//cout << "\nValues: " << number1 << " & " << number2;
 				testSmallNumbers(number1, number2);
 			}
 		}
@@ -140,7 +144,7 @@ namespace mm {
 			string random2 = bigInt1.toString();
 			//Trim leading zeros
 			random1.erase(random1.begin(), random1.begin() + random1.find_first_not_of('0'));
-			MyAssert::myRunTimeAssert(random1 == random2);
+			assert(random1 == random2);
 		}
 
 		//Test construction from hex number
@@ -165,14 +169,14 @@ namespace mm {
 		BigInteger d = c - a;
 		string ds(d.toString());
 		cout << "\nd = c - a = " << ds;
-		MyAssert::myRunTimeAssert(d == b);
-		MyAssert::myRunTimeAssert(ds == bs);
+		assert(d == b);
+		assert(ds == bs);
 
 		BigInteger e = c - b;
 		string es(e.toString());
 		cout << "\ne = c - b = " << es;
-		MyAssert::myRunTimeAssert(e == a);
-		MyAssert::myRunTimeAssert(es == as);
+		assert(e == a);
+		assert(es == as);
 
 		BigInteger f = a * b;
 		string fs(f.toString());
@@ -186,10 +190,10 @@ namespace mm {
 			string hs(h.toString());
 			cout << "\ng = f / a = " << gs;
 			cout << "\nh = f % a = " << hs;
-			MyAssert::myRunTimeAssert(g == b);
-			MyAssert::myRunTimeAssert(gs == bs);
-			MyAssert::myRunTimeAssert(h == 0LL);
-			MyAssert::myRunTimeAssert(hs == "0");
+			assert(g == b);
+			assert(gs == bs);
+			assert(h == BigInteger::bigIntZero);
+			assert(hs == "0");
 		}
 
 		if (b != BigInteger::bigIntZero)
@@ -200,10 +204,10 @@ namespace mm {
 			string js(j.toString());
 			cout << "\ni = f / b = " << is;
 			cout << "\nj = f % b = " << js;
-			MyAssert::myRunTimeAssert(i == a);
-			MyAssert::myRunTimeAssert(is == as);
-			MyAssert::myRunTimeAssert(j == 0LL);
-			MyAssert::myRunTimeAssert(js == "0");
+			assert(i == a);
+			assert(is == as);
+			assert(j == BigInteger::bigIntZero);
+			assert(js == "0");
 		}
 
 		string ks(k.toString());
@@ -214,8 +218,8 @@ namespace mm {
 		BigInteger rhs(b);
 		BigInteger min(k);
 		string mins(min.toString());
-		MyAssert::myRunTimeAssert(min == k);
-		MyAssert::myRunTimeAssert(mins == ks);
+		assert(min == k);
+		assert(mins == ks);
 
 		if (min.absolute() > a.absolute())
 		{
@@ -263,29 +267,29 @@ namespace mm {
 			cout << "\ndiv2 = dividend / rhs = " << div2s;
 			cout << "\nrem2 = dividend % rhs = " << rem2s;
 
-			if (min == 0
+			if (min == BigInteger::bigIntZero
 				|| (!isLhsNegative && !isRhsNegative && !isMinNegative)
 				|| (isLhsNegative && isRhsNegative && !isMinNegative))
 			{
-				MyAssert::myRunTimeAssert(div1 == rhs);
-				MyAssert::myRunTimeAssert(div1s == rhss);
-				MyAssert::myRunTimeAssert(rem1 == min);
-				MyAssert::myRunTimeAssert(rem1s == mins);
+				assert(div1 == rhs);
+				assert(div1s == rhss);
+				assert(rem1 == min);
+				assert(rem1s == mins);
 
-				MyAssert::myRunTimeAssert(div2 == lhs);
-				MyAssert::myRunTimeAssert(div2s == lhss);
-				MyAssert::myRunTimeAssert(rem2 == min);
-				MyAssert::myRunTimeAssert(rem2s == mins);
+				assert(div2 == lhs);
+				assert(div2s == lhss);
+				assert(rem2 == min);
+				assert(rem2s == mins);
 			}
 			else if ((!isLhsNegative && !isRhsNegative && isMinNegative)
 				|| (isLhsNegative && isRhsNegative && isMinNegative)
 				|| ((isLhsNegative || isRhsNegative) && !isMinNegative))
 			{
-				MyAssert::myRunTimeAssert(div1.absolute() == (rhs.absolute() - 1));
-				MyAssert::myRunTimeAssert((rem1.absolute() + min.absolute()) == lhs.absolute());
+				assert(div1.absolute() == (rhs.absolute() - BigInteger::bigIntOne));
+				assert((rem1.absolute() + min.absolute()) == lhs.absolute());
 
-				MyAssert::myRunTimeAssert(div2.absolute() == (lhs.absolute() - 1));
-				MyAssert::myRunTimeAssert((rem2.absolute() + min.absolute()) == rhs.absolute());
+				assert(div2.absolute() == (lhs.absolute() - BigInteger::bigIntOne));
+				assert((rem2.absolute() + min.absolute()) == rhs.absolute());
 			}
 		}
 	}
@@ -390,8 +394,8 @@ namespace mm {
 			string ts(t.toString());
 
 			cout << "\nb = a ^ " << i << " = " << bs[i];
-			MyAssert::myRunTimeAssert(t == b[i]);
-			MyAssert::myRunTimeAssert(ts == bs[i]);
+			assert(t == b[i]);
+			assert(ts == bs[i]);
 		}
 		int testCase = 0;
 		for (int i = 1; i < 10; i++)
@@ -404,11 +408,11 @@ namespace mm {
 			string cs(c.toString());
 			string ds(d.toString());
 
-			MyAssert::myRunTimeAssert(c == a);
-			MyAssert::myRunTimeAssert(cs == as);
+			assert(c == a);
+			assert(cs == as);
 
-			MyAssert::myRunTimeAssert(d == BigInteger::bigIntZero);
-			MyAssert::myRunTimeAssert(ds == "0");
+			assert(d == BigInteger::bigIntZero);
+			assert(ds == "0");
 		}
 
 		for (int i = 1; i < 10; i++)
@@ -421,11 +425,11 @@ namespace mm {
 			string cs(c.toString());
 			string ds(d.toString());
 
-			MyAssert::myRunTimeAssert(c == b[i - 1]);
-			MyAssert::myRunTimeAssert(cs == bs[i - 1]);
+			assert(c == b[i - 1]);
+			assert(cs == bs[i - 1]);
 
-			MyAssert::myRunTimeAssert(d == BigInteger::bigIntZero);
-			MyAssert::myRunTimeAssert(ds == "0");
+			assert(d == BigInteger::bigIntZero);
+			assert(ds == "0");
 		}
 	}
 
@@ -512,7 +516,7 @@ namespace mm {
 		//cout << "\n1st String: " << random;
 		//cout << "\n2nd String: " << str;
 
-		MyAssert::myRunTimeAssert(random == str);
+		assert(random == str);
 
 		/*
 		Results:
@@ -574,8 +578,8 @@ namespace mm {
 	{
 		Timer t;
 		
-		cout << "\nTest: Generating 100000 digit random big integer (Takes 14,721,756 nanoseconds; 380,121 ns): ";
-		size_t bits = 100000 * (log(10) / log(2));
+		cout << "\n\nTest: Generating 100000 digit random big integer (Takes 14,721,756 nanoseconds; 380,121 ns): ";
+		size_t bits = static_cast<size_t>(100000 * (log(10) / log(2)));
 		t.resetTimer();		
 		BigInteger b1 = BigInteger::getRandomNumber(bits);
 		cout << t.getDurationStringTillNowInNanoSeconds();
@@ -594,12 +598,12 @@ namespace mm {
 	void testExtraLargeNumbers_test5_factorial()
 	{
 		Timer t;
-		cout << "\nTest: Generating 50000! (Takes 6,108,231,991 nanoseconds): ";
+		cout << "\n\nTest: Generating 50000! (Takes 6,108,231,991 nanoseconds): ";
 
 		t.resetTimer();
 		BigInteger factorial = BigInteger::bigIntOne;
 		for (BigInteger::DigitType num = 1; num < 50000; ++num)
-			factorial = factorial * num;
+			factorial = factorial * BigInteger{ num };
 
 		cout << t.getDurationStringTillNowInNanoSeconds();
 		cout << "\nfactorial of 50000 = " << factorial.toString();
@@ -679,7 +683,7 @@ namespace mm {
 		int currentIndex = 0;
 		for (int n = 2; currentIndex != count; n++)
 		{
-			int squareRootN = sqrt(n);
+			int squareRootN = static_cast<int>(sqrt(n));
 			int i = 0;
 			while (true)
 			{
@@ -695,7 +699,7 @@ namespace mm {
 			}
 		}
 
-		cout << "\nstatic const vector<DigitType> first" << count << "Primes = {\n\t";
+		cout << "\n\nstatic const vector<DigitType> first" << count << "Primes = {\n\t";
 		int groupEnd = 100;
 		for (int i = 0; i < primes.size(); i++)
 		{
@@ -713,7 +717,7 @@ namespace mm {
 
 	void FindNextPrime(const BigInteger& referenceNumber, const PrimalityTest& primalityTestMethod)
 	{
-		cout << "\nFinding next prime. Reference Number: " << referenceNumber.toString();
+		cout << "\n\nFinding next prime. Reference Number: " << referenceNumber.toString();
 		BigInteger prime = BigInteger::getNextPrimeNumber(referenceNumber, primalityTestMethod);
 		string primeStr(prime.toString());
 		cout << "\nPrime number = " << primeStr;
@@ -734,33 +738,40 @@ namespace mm {
 		//unsigned long long max is 18,446,744,073,709,551,615 - a 20 digit number
 		for (size_t digits = 1; digits < 20; ++digits)
 		{
+			BigInteger::getLogger() << ("\n\n=================== Exercise: generating prime number of " + to_string(digits) + " digits");
 			BigInteger::ResultType randomNumber = generateRandomNumber(digits);
 			FindNextPrime(randomNumber, Fermat_efficient);
 			FindNextPrime(randomNumber, MillerRabin_basic);
 		}
 
 		//Find random primes of various different bit size
-		size_t incrementBy = 8;
-		for (size_t bits = incrementBy; bits < 1025; bits += incrementBy)
+		vector<size_t> bits = { 
+			8, 16, 24, 32, 40, 48, 56, 64, 72, 80,
+			100, 200, 300, 400, 500, 600, 700, 800, 900, 1000,
+			1024, 2048, 3072, 4096
+		};
+		for (size_t i = 0; i < bits.size(); ++i)
 		{
-			BigInteger randomNumber = BigInteger::getRandomNumber(bits);
+			BigInteger::getLogger() << ("\n\n=================== Exercise: generating prime number of length " + to_string(bits[i]) + " bits");
+			BigInteger randomNumber = BigInteger::getRandomNumber(bits[i]);
 			FindNextPrime(randomNumber, Fermat_efficient);
 			FindNextPrime(randomNumber, MillerRabin_basic);
 		}
 	}
 
-	void generateBigPrimeNumbers1024bits()
-	{
-		//Find 10 random primes of 1024 bits
-		for (int i = 0; i < 10; i++)
-		{
-			BigInteger::getLogger() << ("=================== Exercise: " + to_string(i));
-			//_sleep(4000);
-			BigInteger randomNumber = BigInteger::getRandomNumber(1024);
-			FindNextPrime(randomNumber, Fermat_efficient);
-			FindNextPrime(randomNumber, MillerRabin_basic);
-		}
-	}
+	//void generateBigPrimeNumbers1024bits()
+	//{
+	//	//Find 10 random primes of 1024 bits
+	//	BigInteger::getLogger() << "\n=================== Exercise: Find 10 prime numbers of 1024 bits";
+	//	for (int i = 0; i < 10; i++)
+	//	{
+	//		BigInteger::getLogger() << ("\n" + to_string(i + 1) + " th prime number: ");
+	//		//_sleep(4000);
+	//		BigInteger randomNumber = BigInteger::getRandomNumber(1024);
+	//		FindNextPrime(randomNumber, Fermat_efficient);
+	//		FindNextPrime(randomNumber, MillerRabin_basic);
+	//	}
+	//}
 
 	//This function is not used
 	void FindRandomPrime(const size_t& bits, const PrimalityTest& primalityTestMethod)
@@ -849,34 +860,37 @@ namespace mm {
 	{
 		cout << "\n\n~~~~~~~~~~~~~~~~~~ BigInteger_UnitTest() ~~~~~~~~~~~~~~~~~~~~~~~\n";
 
-		//BigInteger bigInt1(-16337), bigInt2(-730), bigIntQuotient, bigIntRemainder;
-		//bigInt1.divideAndRemainder(bigInt2, bigIntQuotient, bigIntRemainder);
-
-		//Some utility functions:
-		//generatePrimeNumbers(1000);
-
 		//One time seed initialization
 		srand((unsigned)time(0));
 
+		//Some utility functions:
+		generatePrimeNumbers(1000);
 
-		//testBigIntegerInitialization();
-		//testSmallNumbers();
-		//testVeryLargeNumbers();
+		testBigIntegerInitialization();
+		testSmallNumbers();
+		testVeryLargeNumbers();
 		testExtraLargeNumbers();
 
-		//generateBigPrimeNumbers();
+		generateBigPrimeNumbers();
 		//generateBigPrimeNumbers1024bits();
-		//testPredefinedPrimeNumbers();
+		testPredefinedPrimeNumbers();
 
-		//generateAndTestCarmichaelNumbers();
-		//testPredefinedCarmichaelNumbers();
-		//testFermatPseudoPrimes();
-		//testAbsoluteFermatPseudoPrimes();
-		//testMillerRabinPseudoPrimes();
+		generateAndTestCarmichaelNumbers();
+		testPredefinedCarmichaelNumbers();
+		testFermatPseudoPrimes();
+		testAbsoluteFermatPseudoPrimes();
+		testMillerRabinPseudoPrimes();
 
-		BigInteger::getLogger().close();
+		//BigInteger::getLogger().close();
 	}
 
+
+	MM_DECLARE_FLAG(BigInteger_unit_test);
+
+	MM_UNIT_TEST(BigInteger_unit_test_1, BigInteger_unit_test)
+	{
+		BigInteger_UnitTest();
+	}
 
 
 	/*

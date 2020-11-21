@@ -1,5 +1,5 @@
 //#include "..\Header Files\PrimeNumber.h"
-#include "PrimeNumber.h"
+#include "Maths/Maths_PrimeNumber.h"
 
 namespace mm {
 
@@ -8,7 +8,7 @@ namespace mm {
 		unsigned int primeNumber = PrimeNumber<unsigned int>::generateRandomPrimeNumber(8);
 		for (int i = 0; i < MaxPrimalityTest; i++)
 		{
-			MyAssert::myRunTimeAssert(PrimeNumber<unsigned int>::checkIfPrimeNumber(primeNumber, ePrimalityTest(i)) == true);
+			assert(PrimeNumber<unsigned int>::checkIfPrimeNumber(primeNumber, ePrimalityTest(i)) == true);
 		}
 	}
 

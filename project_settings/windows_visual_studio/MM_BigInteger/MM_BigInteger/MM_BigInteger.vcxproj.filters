@@ -21,9 +21,6 @@
     <ClCompile Include="..\..\..\..\src\BigInteger\BigInteger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\src\BigInteger\BigInteger_Template.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\src\BigInteger\BigInteger_Template_UnitTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -34,9 +31,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\src\Logger\Logger_UnitTest.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\src\my_math_lib\ArithmeticOperations.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\src\Timer\Timer.cpp">
@@ -54,12 +48,6 @@
     <ClCompile Include="..\..\..\..\src\my_math_lib\Permutations.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\src\my_math_lib\PrimeNumber.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\src\my_math_lib\RandomNumber.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\src\Timer\MSDNTimeExample.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -67,6 +55,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\src\_MM_BigInteger_main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\%40_Programming\Everything\MM_BigInteger\src\Maths\Maths_PrimeNumber.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\%40_Programming\Everything\MM_BigInteger\src\Maths\Maths_RandomNumber.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\%40_Programming\Everything\MM_BigInteger\src\Maths\Maths_ArithmeticOperations.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -83,9 +80,6 @@
     <ClInclude Include="..\..\..\..\src\Logger\Logger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\src\my_math_lib\ArithmeticOperations.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\..\src\Timer\Timer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -98,16 +92,19 @@
     <ClInclude Include="..\..\..\..\src\my_math_lib\Permutations.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\src\my_math_lib\PrimeNumber.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\src\my_math_lib\RandomNumber.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\..\src\Timer\MSDNTimeExample.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\src\Timer\Timer2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\..\%40_Programming\Everything\MM_BigInteger\src\Maths\Maths_PrimeNumber.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\..\%40_Programming\Everything\MM_BigInteger\src\Maths\Maths_RandomNumber.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\..\%40_Programming\Everything\MM_BigInteger\src\Maths\Maths_ArithmeticOperations.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
