@@ -32,3 +32,4 @@
 /obj/windows_gcc/Timer/*.o
 /obj/windows_gcc/my_math_lib/*.o
 unsuccessfulbuild
+/project_settings/windows_visual_studio/MM_BigInteger/.vs/*

@@ -12,9 +12,10 @@ namespace mm {
 	//void BigIntegerTemplateTest();
 	//void BigInteger_UnitTest();
 
-	MM_DEFINE_FLAG(true, BigInteger_Template_unit_test);
-	MM_DEFINE_FLAG(true, BigInteger_unit_test);
-	MM_DEFINE_FLAG(true, arithmeticOperations_power);
+	MM_DEFINE_FLAG(false, BigInteger_Template_unit_test);
+	MM_DEFINE_FLAG(false, BigInteger_unit_test);
+	MM_DEFINE_FLAG(false, arithmeticOperations_power);
+	MM_DEFINE_FLAG(true, GMP_unit_test);
 }
 
 using namespace mm;
