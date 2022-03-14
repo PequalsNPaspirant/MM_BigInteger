@@ -33,12 +33,6 @@
     <ClCompile Include="..\..\..\..\src\Logger\Logger_UnitTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\src\Timer\Timer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\src\Timer\Timer_UnitTest.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\src\my_math_lib\Maths.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -69,6 +63,9 @@
     <ClCompile Include="..\..\..\..\src\GMP\GMP_Test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\src\Timer\Timer_Timer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\src\Assert\MyAssert.h">
@@ -81,9 +78,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\src\Logger\Logger.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\src\Timer\Timer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\src\my_math_lib\Maths.h">
@@ -111,6 +105,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\src\GMP\GMP_Test.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\Timer\Timer_Timer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

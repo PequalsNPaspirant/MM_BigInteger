@@ -33,3 +33,5 @@
 /obj/windows_gcc/my_math_lib/*.o
 unsuccessfulbuild
 /project_settings/windows_visual_studio/MM_BigInteger/.vs/*
+/cmake/build_vs_2017/*
+/cmake/build_vs_2022/*

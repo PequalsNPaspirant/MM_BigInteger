@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\src\Timer\Timer_Timer.cpp" />
     <ClCompile Include="..\..\..\..\src\GMP\GMP_Test.cpp" />
     <ClCompile Include="..\..\..\..\src\Maths\Maths_ArithmeticOperations.cpp" />
     <ClCompile Include="..\..\..\..\src\Maths\Maths_PrimeNumber.cpp" />
@@ -35,10 +36,9 @@
     <ClCompile Include="..\..\..\..\src\Logger\Logger.cpp" />
     <ClCompile Include="..\..\..\..\src\Logger\Logger_UnitTest.cpp" />
     <ClCompile Include="..\..\..\..\src\_MM_BigInteger_main.cpp" />
-    <ClCompile Include="..\..\..\..\src\Timer\Timer.cpp" />
-    <ClCompile Include="..\..\..\..\src\Timer\Timer_UnitTest.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\src\Timer\Timer_Timer.h" />
     <ClInclude Include="..\..\..\..\src\GMP\GMP_Test.h" />
     <ClInclude Include="..\..\..\..\src\Maths\Maths_ArithmeticOperations.h" />
     <ClInclude Include="..\..\..\..\src\Maths\Maths_PrimeNumber.h" />
@@ -52,7 +52,6 @@
     <ClInclude Include="..\..\..\..\src\BigInteger\BigInteger.h" />
     <ClInclude Include="..\..\..\..\src\BigInteger\BigInteger_Template.h" />
     <ClInclude Include="..\..\..\..\src\Logger\Logger.h" />
-    <ClInclude Include="..\..\..\..\src\Timer\Timer.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{1F63CF4D-5370-445B-8961-17F0C429BBFB}</ProjectGuid>

@@ -5,7 +5,7 @@
 #include <sstream> // for std::stringstream
 using namespace std;
 
-#include "Timer/Timer.h"
+#include "Timer/Timer_Timer.h"
 
 namespace mm {
 
