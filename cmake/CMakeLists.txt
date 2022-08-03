@@ -1,10 +1,11 @@
 cmake_minimum_required(VERSION 3.3 FATAL_ERROR)
 cmake_policy(SET CMP0091 NEW)
 
-message("building project MM_BigInteger")
-message("CMAKE_GENERATOR: ${CMAKE_GENERATOR}")
+set(PROJECT_NAME MM_BigInteger)
+project(${PROJECT_NAME})
 
-project(MM_BigInteger)
+message("building project ${PROJECT_NAME}")
+message("CMAKE_GENERATOR: ${CMAKE_GENERATOR}")
 
 #set(Boost_USE_STATIC_LIBS OFF)
 #set(Boost_USE_MULTITHREADED ON)
@@ -34,7 +35,7 @@ IF(WIN32)
   set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -NODEFAULTLIB:LIBCMTD /ignore:4099")
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /bigobj /EHa /Zm2000")
 else()
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread -fexceptions -fnon-call-exceptions -Wall -g")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread -fexceptions -fnon-call-exceptions -Wall -g -fdiagnostics-color=always")
   set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -pthread -fPIC")
 ENDIF(WIN32)
 
@@ -44,12 +45,16 @@ file(GLOB_RECURSE SRC
      "${CMAKE_CURRENT_SOURCE_DIR}/../src/*.cpp"
 )
 
-add_executable(MM_BigInteger ${SRC})
-#add_library(MM_BigInteger ${SRC})
+add_executable(${PROJECT_NAME} ${SRC})
+#add_library(${PROJECT_NAME} ${SRC})
 
-set_property(TARGET MM_BigInteger PROPERTY
+set_property(TARGET ${PROJECT_NAME} PROPERTY
   MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+  
+#set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CMAKE_COMMAND} -E time")
+#set_property(GLOBAL PROPERTY RULE_LAUNCH_LINK "${CMAKE_COMMAND} -E time")
+set_property(GLOBAL PROPERTY RULE_MESSAGES ON)
 
-target_compile_features(MM_BigInteger PUBLIC cxx_std_11)
+target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_11)
 
 
